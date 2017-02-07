@@ -35,11 +35,10 @@ function randomInteger(min, max) {
     return rand;
 }
 
-var idRowRand = randomInteger(0, row);
-var idColRand = randomInteger(0, column);
-var id = 'row' + idRowRand + 'col' + idColRand;
-
 function createFood() {
+    var idRowRand = randomInteger(0, row);
+    var idColRand = randomInteger(0, column);
+    var id = 'row' + idRowRand + 'col' + idColRand;
     var elem = document.getElementById(id);
     elem.style.background = "red";
     //var cellColor = elem.style.background("red");
@@ -47,7 +46,7 @@ function createFood() {
 
 // function isEmptyCell(idRowRand, idColRand) {
 //     var id = 'row' + idRowRand + 'col' + idColRand;
-//     var cellColor = YD.getStyle(id, "background-color");
+//     var cellColor = (id, "background-color");
 //     if(cellColor == "transparent" || cellColor == false || cellColor == "rgb(255, 255, 255)" || cellColor == BGCOLOR) { //empty cell
 //         return true;
 //     } else {
@@ -58,65 +57,9 @@ function createFood() {
 var a = setInterval(createFood, 500);
 
 
-// var createFood = function() {
-//     var row,
-//         col,
-//         len = 5,
-//         score = 250;
-//     while(true) {
-//         row = Math.floor(Math.random() * maxRow) + 1;
-//         col = Math.floor(Math.random() * maxCol) + 1;
-//         if(this.isEmptyCell(row, col)) {
-//             myFood = new Food(row, col, len, score);
-//             return;
-//         }
-//     }
-// };
 
 
 
 
 
 
-
-
-
-// for (var i=0; i< 144; i++){
-//     var f = document.getElementById("field");
-//     if(f !==null){
-//         var item = f.appendChild(document.createElement("div"));
-//         item.classList.add("square");
-//     }
-// }
-
-
-
-// var i = 0, count = 0;
-//
-// while (count < 8 * 8) {
-//     var item = document.createElement('div');
-//
-//     for(i=0; i<8; i++){
-//         for(j=0;j<8;j++){
-//             item.append('<div class="square"></div>');
-//         }
-//     }
-// count++;
-//
-//
-// }
-
-
-
-
-
-// function addField(){
-//     for (var i = 0; i < 8; i++) {
-//         for (var j = 0; j < 8; j++) {
-//             if ((i%2==0 && j%2==0)|| (i%2!=0 && j%2!=0)){
-//                 $("#board").append('<div class="s_kl"></div>');
-//             }
-//             else $("#board").append('<div class="t_kl"></div>');
-//         }
-//     }
-// }
