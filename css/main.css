@@ -26,10 +26,16 @@ body{
     float: left;
     width: 28px;
     height: 28px;
-    background-color: #dae6ff;
+    background-color: ghostwhite;
     border: 1px solid #97a1ba;
 }
 
 .clear{
     clear: both;
+}
+
+.snake {
+    width: 28px;
+    height: 28px;
+    background-color: #000;
 }
