@@ -54,7 +54,7 @@
     function generateSnake() {
         //var sn = document.getElementById("row1col1");
 
-        console.log(len);
+        //console.log(len);
         for (var i = 1; i < len ; i++) {
             var id = 'row' + 1 + 'col' + i;
             var elem = document.getElementById(id);
@@ -66,10 +66,12 @@
 
     var x = 1;
     var y = 1;
-    var first = 1;
-    var last;
+
+
+
 
     function runSnake() {
+
         if (x < maxCol + 1) {
             var id = 'row' + y + 'col' + x;
             //console.log(id);
@@ -77,7 +79,6 @@
             if(elem.classList.contains('food')) {
                 snake.push(1);
                 len = snake.length;
-                //console.log(len);
                 //console.log(snake);
                 //console.log("-----------"+len);
             }
@@ -89,13 +90,29 @@
             //console.log(idnext);
             var elemnext = document.getElementById(idnext);
             elemnext.classList.remove('snake');
+
         } else if (x > maxCol) {
             var idpost = 'row' + y + 'col' + (x - len);
             var elempost = document.getElementById(idpost);
             elempost.classList.remove('snake');
-            console.log(len);
+            var idn = 'row' + (y+1) + 'col' + (x-maxCol);
+            var elemf = document.getElementById(idn);
+            elemf.classList.add('snake');
+            console.log('++++' + idn);
+            var last = x-len;
+            //console.log(last + 'last');
+            //console.log(x + 'x');
         }
+
+        //last = x-len;
+        //console.log(last);
         x++;
+
+        // if(first === maxCol+1){
+        //     y++;
+        //     setTimeout(runSnake, 100);
+        //     console.log(last);
+        // }
         if (x < maxCol + (len+1)) {
             setTimeout(runSnake, 100);
         } else {
@@ -109,6 +126,7 @@
                 setTimeout(runSnake, 100);
             }
         }
+
     }
 
     runSnake();
