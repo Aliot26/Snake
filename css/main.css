@@ -39,3 +39,11 @@ body{
     height: 28px;
     background-color: #000;
 }
+
+.food{
+    width: 28px;
+    height: 28px;
+    background-color: #a92931;
+    border: 1px solid #af4d4a;
+    border-radius: 30%;
+}
