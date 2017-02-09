@@ -2,8 +2,8 @@
 
     var maxCol = 16;
     var maxRow = 16;
-    var direction = 'right';
     var snake = [73, 72, 71, 5];
+    var len = snake.length;
 
 
     function createField(rowC, colC) {
@@ -44,14 +44,16 @@
         var idColRand = randomInteger(0, maxCol);
         var id = 'row' + idRowRand + 'col' + idColRand;
         var elem = document.getElementById(id);
-        elem.classList.add('food');
+        if(!elem.classList.contains('snake')) {
+            elem.classList.add('food');
+        }
     }
 
     var a = setInterval(createFood, 500);
 
     function generateSnake() {
         //var sn = document.getElementById("row1col1");
-        var len = snake.length;
+
         console.log(len);
         for (var i = 1; i < len ; i++) {
             var id = 'row' + 1 + 'col' + i;
@@ -64,26 +66,37 @@
 
     var x = 1;
     var y = 1;
+    var first = 1;
+    var last;
 
     function runSnake() {
         if (x < maxCol + 1) {
             var id = 'row' + y + 'col' + x;
-            console.log(id);
+            //console.log(id);
             var elem = document.getElementById(id);
+            if(elem.classList.contains('food')) {
+                snake.push(1);
+                len = snake.length;
+                //console.log(len);
+                //console.log(snake);
+                //console.log("-----------"+len);
+            }
+            elem.classList.remove('food');
             elem.classList.add('snake');
         }
-        if (x > 3 && x < maxCol + 1) {
-            var idnext = 'row' + y + 'col' + (x - 3);
-            console.log(idnext);
+        if (x > len && x < maxCol + 1) {
+            var idnext = 'row' + y + 'col' + (x - len);
+            //console.log(idnext);
             var elemnext = document.getElementById(idnext);
             elemnext.classList.remove('snake');
         } else if (x > maxCol) {
-            var idpost = 'row' + y + 'col' + (x - 3);
+            var idpost = 'row' + y + 'col' + (x - len);
             var elempost = document.getElementById(idpost);
             elempost.classList.remove('snake');
+            console.log(len);
         }
         x++;
-        if (x < maxCol + 4) {
+        if (x < maxCol + (len+1)) {
             setTimeout(runSnake, 100);
         } else {
             x = 1;
@@ -100,18 +113,7 @@
 
     runSnake();
 
-    /*
 
-     function runSnake(i) {
-     if (i >= 0 && i < (xmax * ymax)) {
-     var tr = Math.floor(i / xmax);
-     var td = i % xmax;
-     var oTd = jQuery('#tbl').find('tr').eq(tr).find('td').eq(td);
-     return oTd;
-     } else {
-     return false;
-     }
-     }*/
 })();
 
 
