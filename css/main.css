@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: beige;
+    background-color: ghostwhite;
     font: 14px Arial, sans-serif;
     color: #2c2c53;
     line-height: 2em;
@@ -18,7 +18,7 @@ body{
 #field{
     width: 600px;
     height: 600px;
-    background-color: beige;
+    background-color: ghostwhite;
 }
 
 .square{
@@ -45,5 +45,5 @@ body{
     height: 28px;
     background-color: #a92931;
     border: 1px solid #af4d4a;
-    border-radius: 30%;
+    border-radius: 50%;
 }
