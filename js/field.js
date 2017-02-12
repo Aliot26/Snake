@@ -1,7 +1,10 @@
 var maxCol = 8;
 var maxRow = 8;
-var snake = [1,2];
+var snake = [1, 2];
 var len = snake.length;
+var first = 1;
+var idLast;
+var qwe = 0;
 
 function createField(rowC, colC) {
     var str = "";
@@ -17,8 +20,6 @@ function createField(rowC, colC) {
     el.innerHTML = str;
 }
 
-createField(maxRow, maxCol);
-
 function randomInteger(min, max) {
     var rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
@@ -33,34 +34,23 @@ function createFood() {
     }
 }
 
-var a = setInterval(createFood, 500);
-
-var first = 1;
-var idLast;
-var qwe=0;
-
-function removeSnake(idTail){
-    console.log(idTail);
+function removeSnake(idTail) {
     var elem = document.getElementById(idTail);
     elem.classList.remove('snake');
 }
 
 function runSnake() {
-
-
     if (first <= (maxCol * maxRow)) {
         var idFirst = first;
         len = snake.length;
         idLast = first - len;
         var elemHead = document.getElementById(idFirst);
 
-        if(idLast > 0){
-            console.log(">");
+        if (idLast > 0) {
             removeSnake(idLast);
 
-        }else if(idLast<=0 && qwe!=0 && qwe<maxCol*maxRow){
+        } else if (idLast <= 0 && qwe != 0 && qwe < maxCol * maxRow) {
             qwe++;
-            console.log("<");
             removeSnake(qwe);
         }
 
@@ -78,11 +68,12 @@ function runSnake() {
         setTimeout(runSnake, 50);
     }
 
-    if(first > maxCol*maxRow){
+    if (first > maxCol * maxRow) {
         qwe = idLast;
         first = 1;
         setTimeout(runSnake, 50);
     }
 }
-
+createField(maxRow, maxCol);
+setInterval(createFood, 500);
 runSnake();
