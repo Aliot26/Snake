@@ -27,7 +27,7 @@ function randomInteger(min, max) {
 }
 
 function createFood() {
-    var idCell = randomInteger(0, maxRow * maxCol);
+    var idCell = randomInteger(1, maxRow * maxCol);
     var elem = document.getElementById(idCell);
     if (!elem.classList.contains('snake')) {
         elem.classList.add('food');
@@ -46,20 +46,20 @@ function runSnake() {
         idLast = first - len;
         var elemHead = document.getElementById(idFirst);
 
+        if (elemHead.classList.contains('food')) {
+            snake.push(1);
+            len = snake.length;
+            createFood();
+        }
+        elemHead.classList.remove('food');
+        elemHead.classList.add('snake');
+
         if (idLast > 0) {
             removeSnake(idLast);
-
         } else if (idLast <= 0 && qwe != 0 && qwe < maxCol * maxRow) {
             qwe++;
             removeSnake(qwe);
         }
-
-        if (elemHead.classList.contains('food')) {
-            snake.push(1);
-            len = snake.length;
-        }
-        elemHead.classList.remove('food');
-        elemHead.classList.add('snake');
     }
 
     first++;
@@ -74,6 +74,8 @@ function runSnake() {
         setTimeout(runSnake, 50);
     }
 }
+
 createField(maxRow, maxCol);
-setInterval(createFood, 500);
+createFood();
+//setInterval(createFood, 500);
 runSnake();

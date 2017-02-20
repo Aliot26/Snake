@@ -1,27 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: ghostwhite;
     font: 14px Arial, sans-serif;
     color: #2c2c53;
     line-height: 2em;
 }
 
-.content{
+.content {
     max-width: 960px;
     margin: 40px auto;
 }
 
-#field{
+#field {
     width: 600px;
     height: 600px;
     background-color: ghostwhite;
 }
 
-.square{
+.square {
     position: relative;
     float: left;
     width: 28px;
@@ -30,7 +30,7 @@ body{
     border: 1px solid #97a1ba;
 }
 
-.clear{
+.clear {
     clear: both;
 }
 
@@ -40,7 +40,7 @@ body{
     background-color: #000;
 }
 
-.food{
+.food {
     width: 28px;
     height: 28px;
     background-color: #a92931;
